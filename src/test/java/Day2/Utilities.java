@@ -1,9 +1,12 @@
 package Day2;
 
+import com.github.javafaker.Faker;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Properties;
 
 // creating a reusable code
@@ -23,6 +26,30 @@ public class Utilities {
         }
 
         return x;
+
+    }
+
+    public static String firstname()
+    {
+        Faker faker=new Faker();
+        return faker.name().firstName();
+    }
+    public static String fullName(){
+        Faker faker = new Faker((new Locale("en-IND")));
+        return faker.name().fullName();
+    }
+    public static String email(){
+        Faker faker = new Faker((new Locale("en-IND")));
+        return faker.name().firstName()+"@xyz.com";
+    }
+    public static String mobileNumber(){
+        Faker faker = new Faker((new Locale("en-IND")));
+        return faker.number().digits(10);
+    }
+    public static String address(){
+        Faker faker = new Faker((new Locale("en-IND")));
+        return faker.address().fullAddress();
+
 
     }
 }
