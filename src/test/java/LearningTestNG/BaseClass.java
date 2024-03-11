@@ -3,19 +3,24 @@ package LearningTestNG;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.*;
 
 public class BaseClass {
-   protected WebDriver driver;
-@BeforeClass
-    public void initialise1()
+
+
+    protected WebDriver driver;
+
+    @BeforeClass
+    public void initialise()
     {
         driver=new ChromeDriver();
     }
     @AfterClass
-    public void teardown() throws InterruptedException {
-        Thread.sleep(5000);
-        driver.close();
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(4000);
+        driver.quit();
     }
+
 }
